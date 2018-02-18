@@ -1,0 +1,56 @@
+[color]
+
+	ui = true
+
+[user]
+
+	name = Matthew Davis
+	email = matthew@appsoa.io
+
+[push]
+
+	default = tracking
+
+[color]
+
+	status = auto
+	diff = auto
+
+[pull]
+  
+  rebase = true
+
+[alias]
+
+    a   = add
+    co  = checkout
+    cl  = clone
+
+    c = commit
+	cm = commit --message
+	cam = !git add --all && git commit --message
+	ca = commit --amend
+	caa = !git add --all && git commit --amend
+	car = !git add --all && git commit --reuse-message=HEAD
+	st = status -sb
+	br = branch
+	hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+	type = cat-file -t
+	dump = cat-file -p
+	undo = reset --soft HEAD^
+	# t for tree
+	t = log --graph --decorate --pretty=oneline --abbrev-commit
+	tt = log --graph --all --decorate --pretty=oneline --abbrev-commit
+	gg = log --graph --pretty=format:'%Cred%h%Creset %Cgreen(%cr)%Creset%Cblue[%an]%Creset -%C(yellow)%d%Creset %s' --abbrev-commit --date=relative
+	ggh = !sh -c 'git gg | head'
+	ggd = !sh -c 'git gg --left-right --graph --cherry-mark $1...$2' - # shows commits between branches, example: git ggd master development
+	d = diff
+	unstage = reset HEAD --
+	new = !sh -c 'git gg $1@{1}..$1@{0} "$@"' && echo
+	show-new-sha1s = !sh -c 'git log --all --pretty=oneline --abbrev-commit $1@{1}..$1@{0} "$@" | head | awk \"{print \\$1}\"'
+	diff-new = !sh -c 'git show-new-sha1s | xargs -I {} git diff {}' && echo
+	pull-gg = !git pull && git new
+	push-gg = !git push && git new
+	fixup = !sh -c 'git commit --fixup="$1" && git rebase --interactive --autostash --autosquash "$1"~1' -
+	su = submodule update
+	sui = submodule update --init

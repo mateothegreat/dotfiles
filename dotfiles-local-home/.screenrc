@@ -1,0 +1,23 @@
+defscrollback 1000
+
+# don't display the copyright page
+startup_message off
+
+# emulate .logout message
+pow_detach_msg "Screen session of $LOGNAME $:cr:$:nl:ended."
+
+# advertise hardstatus support to $TERMCAP
+termcapinfo  * '' 'hs:ts=\E_:fs=\E\\:ds=\E_\E\\'
+
+# make the shell in every window a login shell
+shell -$SHELL
+
+# set every new windows hardstatus line to somenthing descriptive
+defhstatus "screen: ^En (^Et)"
+
+
+# don't kill window after the process died
+zombie "^["
+
+# enable support for the "alternate screen" capability in all windows
+altscreen on
