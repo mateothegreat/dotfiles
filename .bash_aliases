@@ -29,6 +29,7 @@ alias gkecreds="gcloud container clusters get-credentials"
 alias docker="/mnt/c/Program\ Files/Docker/Docker/resources/bin/docker.exe"
 
 alias k="kubectl"
+alias kg="kubectl get"
 alias kgd="kubectl get deploy -o wide --all-namespaces"
 alias kgrs="kubectl get rs -o wide --all-namespaces"
 alias kgrc="kubectl get rc -o wide --all-namespaces"
