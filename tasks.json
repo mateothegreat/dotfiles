@@ -1,0 +1,156 @@
+// {
+//     "version": "2.0.0",
+//     "options": {
+//         "shell": {
+//             "executable": "/bin/sh"
+//         }
+//     },
+//     "tasks": [
+//         {
+//             "label": "make ddinstall",
+//             "command": "make install",
+//             "args": [
+//                 "-C make install"
+//             ],
+//             "options": {
+//                 "cwd": "${workspaceRoot}/dotfiles"
+//             },
+//             "presentation": {
+//                 "echo": true,
+//                 "reveal": "always",
+//                 "focus": false,
+//                 "panel": "shared"
+//             }
+//         },
+//         {
+//             "label": "<TASK_NAME>",
+//             "type": "shell",
+//             "command": "make",
+//             // use options.cwd property if the Makefile is not in the project root ${workspaceRoot} dir
+//             "options": {
+//                 "cwd": "${workspaceRoot}/dotfiles"
+//             },
+//             // start the build without prompting for task selection, use "group": "build" otherwise
+//             "group": {
+//                 "kind": "build",
+//                 "isDefault": true
+//             },
+//             "presentation": {
+//                 "echo": true,
+//                 "reveal": "always",
+//                 "focus": true,
+//                 "panel": "new"
+//             },
+//             // arg passing example: in this case is executed make QUIET=0
+//             "args": [
+//                 "install"
+//             ],
+//             // Use the standard less compilation problem matcher.
+//             "problemMatcher": {
+//                 "owner": "cpp",
+//                 "fileLocation": [
+//                     "absolute"
+//                 ],
+//                 "pattern": {
+//                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+//                     "file": 1,
+//                     "line": 2,
+//                     "column": 3,
+//                     "severity": 4,
+//                     "message": 5
+//                 }
+//             }
+//         },
+//         {
+//             "label": "make",
+//             "args": [
+//                 "make"
+//             ],
+//             "group": {
+//                 "kind": "build",
+//                 "isDefault": true
+//             },
+//             "problemMatcher": {
+//                 "owner": "cpp",
+//                 "fileLocation": "absolute",
+//                 "pattern": {
+//                     "regexp": "^(.*):(\\d+):(\\d+):\\s+(warning|error):\\s+(.*)$",
+//                     "file": 1,
+//                     "line": 2,
+//                     "column": 3,
+//                     "severity": 4,
+//                     "message": 5
+//                 }
+//             }
+//         }
+//     ]
+// }
+// Makefile
+// ${workspaceRoot} the path of the folder opened in VS Code
+// ${file} the current opened file
+// ${fileBasename} the current opened file's basename
+// ${fileDirname} the current opened file's dirname
+// ${fileExtname} the current opened file's extension
+// ${cwd} the task runner's current working directory on startup
+{
+    "version": "0.1.0",
+    "command": "bash",
+    "isShellCommand": true,
+    "showOutput": "silent",
+    "echoCommand": true,
+    "runner": "terminal",
+    "options": {
+        "cwd": "${fileDirname}"
+    },
+    "args": [
+        "-c"
+    ],
+    "tasks": [
+        {
+            "taskName": "debug: print paths",
+            "suppressTaskName": true,
+            "isBuildCommand": false,
+            "args": [
+                "echo cwd: ${cwd} && echo workspaceRoot: ${workspaceRoot} && echo file: ${file} && echo fileBasename: ${fileBasename} && echo fileDirname: ${fileDirname} && echo fileExtname: ${fileExtname}",
+            ]
+        },
+        {
+            "taskName": "asdfasdfmake install",
+            "isBuildCommand": true,
+            "command": "make",
+            "args": [
+                "install"
+            ]
+        },
+        {
+            "taskName": "build",
+            "suppressTaskName": true,
+            "isBuildCommand": true,
+            "args": [
+                "pwd; make build"
+            ]
+        },
+        {
+            "taskName": "test",
+            "suppressTaskName": true,
+            "isTestCommand": true,
+            "args": [
+                "make test"
+            ]
+        },
+        {
+            "taskName": "deploy",
+            "suppressTaskName": true,
+            "args": [
+                "make deploy"
+            ]
+        },
+        {
+            "taskName": "help",
+            "suppressTaskName": true,
+            "args": [
+                "make help"
+            ]
+        }
+    ]
+}
