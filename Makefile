@@ -6,11 +6,11 @@ install:
 	rm -f ~/.inputrc
 	rm -f ~/.gitconfig
 
-	ln -s $(shell pwd)/.bashrc ~/
-	ln -s $(shell pwd)/.bash_aliases ~/
-	ln -s $(shell pwd)/.vimrc ~/
-	ln -s $(shell pwd)/.inputrc ~/
-	ln -s $(shell pwd)/.gitconfig ~/
+	cp $(shell pwd)/.bashrc ~/
+	cp $(shell pwd)/.bash_aliases ~/
+	cp $(shell pwd)/.vimrc ~/
+	cp $(shell pwd)/.inputrc ~/
+	cp $(shell pwd)/.gitconfig ~/
 
 	@echo "Copy & Paste and run:"
 	@echo exec -l bash
