@@ -40,3 +40,27 @@ if [ -f '/home/yomateod/google-cloud-sdk/path.bash.inc' ]; then source '/home/yo
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/yomateod/google-cloud-sdk/completion.bash.inc' ]; then source '/home/yomateod/google-cloud-sdk/completion.bash.inc'; fi
 
+# Using docker volume mounts on windows through WSL
+# https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly#ensure-volume-mounts-work
+sudo mount --bind /mnt/c /c
+
+export PATH="$PATH:/home/yomateod/.config/yarn/global/node_modules/.bin"
+
+# Git upstream branch syncer.
+# Usage: gsync master (checks out master, pull upstream, push origin).
+function gsync() {
+  if [[ ! "$1" ]] ; then
+      echo "You must supply a branch."
+      return 0
+  fi
+
+  BRANCHES=$(git branch --list $1)
+  if [ ! "$BRANCHES" ] ; then
+     echo "Branch $1 does not exist."
+     return 0
+  fi
+
+  git checkout "$1" && \
+  git pull upstream "$1" && \
+  git push origin "$1"
+}

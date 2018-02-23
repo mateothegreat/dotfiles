@@ -21,6 +21,10 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 alias gc="git add . && git commit -am'bump' && git push"
 alias gm="git add . && git commit -a && git push"       
+alias gs='git status'
+alias gc='git commit'
+alias gp='git pull --rebase'
+alias gl='git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 
 alias makeadd="git submodule add -b master git@github.com:mateothegreat/.make.git"
 
@@ -43,3 +47,6 @@ alias kdi="kubectl describe pod"
 alias kds="kubectl describe svc"
 alias kdi="kubectl describe ing"
 alias kdd="kubectl describe deploy" 
+
+# Get the last release name
+alias hlast="helm list --short --max 1 --date -r"
