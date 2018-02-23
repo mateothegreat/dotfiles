@@ -2,7 +2,7 @@
 	email = matthew@appsoa.io
 	name = Matthew Davis
 [core]
-#   editor = vi
+  editor = vi
   excludesfile = ~/.gitignore
   autocrlf = input
 [color]
