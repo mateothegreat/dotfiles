@@ -2,7 +2,7 @@
 	email = matthew@appsoa.io
 	name = Matthew Davis
 [core]
-  editor = vi
+#   editor = vi
   excludesfile = ~/.gitignore
   autocrlf = input
 [color]
@@ -12,8 +12,6 @@
   status = auto
 [web]
   browser = google-chrome
-[credential]
-  helper = osxkeychain
 [push]
   default = simple
 [merge]
