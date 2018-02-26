@@ -48,5 +48,8 @@ alias kds="kubectl describe svc"
 alias kdi="kubectl describe ing"
 alias kdd="kubectl describe deploy" 
 
+alias kdel="kubectl delete"
+alias klo="kubectl logs -f"
+
 # Get the last release name
 alias hlast="helm list --short --max 1 --date -r"
