@@ -5,9 +5,6 @@
 Install to /etc/profiles.d and local .config:
 
 ```
-git clone https://github.com/mateothegreat/dockerfiles
-cd dockerfiles
-./install.sh
-
-source ~/.bashrc
+git clone https://github.com/mateothegreat/dotfiles && cd dotfiles
+make install
 ```
