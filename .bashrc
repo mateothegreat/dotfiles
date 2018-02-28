@@ -42,7 +42,7 @@ if [ -f '/home/yomateod/google-cloud-sdk/completion.bash.inc' ]; then source '/h
 
 # Using docker volume mounts on windows through WSL
 # https://nickjanetakis.com/blog/setting-up-docker-for-windows-and-wsl-to-work-flawlessly#ensure-volume-mounts-work
-sudo mount --bind /mnt/c /c
+# sudo mount --bind /mnt/c /c
 
 export PATH="$PATH:/home/yomateod/.config/yarn/global/node_modules/.bin"
 

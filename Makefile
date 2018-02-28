@@ -1,16 +1,8 @@
+DOTFILES := $(shell find -mindepth 1 -maxdepth 1 -type f -name '\.*' | sed 's/\.\///g')
+
 install:
 
-	rm -f ~/.bashrc
-	rm -f ~/.bash_aliases
-	rm -f ~/.vimrc
-	rm -f ~/.inputrc
-	rm -f ~/.gitconfig
-
-	cp $(shell pwd)/.bashrc ~/
-	cp $(shell pwd)/.bash_aliases ~/
-	cp $(shell pwd)/.vimrc ~/
-	cp $(shell pwd)/.inputrc ~/
-	cp $(shell pwd)/.gitconfig ~/
+	@for F in $(DOTFILES); do echo Installing $$F to ~/$$F; cp -rf $$F ~/$$F; done
 
 	@echo "Copy & Paste and run:"
 	@echo exec -l bash
