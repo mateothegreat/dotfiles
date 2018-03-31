@@ -41,6 +41,7 @@ alias kgds="kubectl get ds -o wide --all-namespaces"
 alias kgp="kubectl get pod -o wide --all-namespaces"
 alias kgi="kubectl get ing -o wide --all-namespaces"
 alias kgs="kubectl get svc -o wide --all-namespaces"
+alias kgall="kubectl get pod,svc,ing,ep,deploy,rs,rc -o wide --all-namespaces"
 
 alias kd="kubectl describe"
 alias kdi="kubectl describe pod"
@@ -49,7 +50,7 @@ alias kdi="kubectl describe ing"
 alias kdd="kubectl describe deploy" 
 
 alias kdel="kubectl delete"
-alias klo="kubectl logs -f"
+alias klogs="kubectl logs -f"
 
 # Get the last release name
 alias hlast="helm list --short --max 1 --date -r"
