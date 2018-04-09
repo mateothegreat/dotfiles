@@ -11,6 +11,7 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+alias tb="nc termbin.com 9999"
 
 alias ll='ls -lath'
 alias l='ls -lath'
