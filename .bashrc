@@ -64,7 +64,3 @@ function gsync() {
   git pull upstream "$1" && \
   git push origin "$1"
 }
-
-export DOCKER_HOST="tcp://172.24.198.229:2376"
-export DOCKER_CERT_PATH="/home/yomateod/.docker"
-export DOCKER_TLS_VERIFY="1"

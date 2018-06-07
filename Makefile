@@ -1,5 +1,4 @@
-# DOTFILES := $(shell find -mindepth 1 -maxdepth 1 -type f -name '\.*' | sed 's/\.\///g')
-DOTFILES := $(shell find . -maxdepth 1 -name ".*" -type f -printf "%P \n")
+sDOTFILES := $(shell find . -maxdepth 1 -name ".*" -type f -printf "%P \n")
 
 install:
 

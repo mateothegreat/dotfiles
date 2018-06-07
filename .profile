@@ -18,8 +18,3 @@ fi
 
 # set PATH so it includes user's private bin directories
 PATH="$HOME/bin:$HOME/.local/bin:$PATH"
-
-
-export DOCKER_HOST=tcp://sandbox.streaming-platform.com:2376
-export DOCKER_TLS_VERIFY=1
-export DOCKER_CERT_PATH=~/.docker
