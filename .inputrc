@@ -1,7 +1,23 @@
-set show-all-if-ambiguous on
-set completion-ignore-case on
 
+#
+# CTRL + left/right navigation
+#
 "\e[1;5D": backward-word ## good: Ctrl+left
 "\eOd": backward-word
 "\e[1;5C": forward-word
 "\eOc": forward-word
+
+$if Bash
+
+    # Search history back and forward using page-up and page-down
+    "\e[5~": history-search-backward
+    "\e[6~": history-search-forward
+
+    # Completion
+    set match-hidden-files off
+    set page-completions off
+    set completion-query-items 350
+    set show-all-if-ambiguous on
+    set completion-ignore-case on
+    
+$endif
